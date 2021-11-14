@@ -18,7 +18,7 @@ while True:
 
     time.sleep(4.97)    # delay time for the next update
 
-    # load the
+    # load the flowRate from json and place json data into text file
     recieve = json.loads(recieve)
     flowRate = recieve["flowRateIn"]
     file.write(str(index))
@@ -29,6 +29,7 @@ while True:
     index += 1
 
     print(round(flowRate))
+    
     # check flow rate, based on that decide how much to open water flow, and write to warn log if needed
     if (round(flowRate) >= 400000 and round(flowRate) <= 600000): # make common case first
         print("Water levels good: medium flow rate (50%)")
